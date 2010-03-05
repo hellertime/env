@@ -1,0 +1,8 @@
+[user]
+  name = Chris Heller
+  email = hellertime@gmail.com
+
+[color]
+  diff = no
+  status = auto
+  branch = auto
