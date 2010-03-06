@@ -1,0 +1,12 @@
+# start ssh-agent and add a key
+ssh-init ()
+{
+  SSH_ENV=~/.ssh/environment
+
+  /usr/bin/ssh-agent | sed -e 's/^echo/#echo/' >$SSH_ENV
+  chmod 600 $SSH_ENV
+  . $SSH_ENV >/dev/null
+  trap "kill $SSH_AGENT_PID" 0
+
+  /usr/bin/ssh-add "$@"
+}
